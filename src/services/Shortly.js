@@ -7,4 +7,9 @@ async function postLogin(login) {
     return token;
 }
 
-export {postLogin}
+async function postSignup(signup) {
+    const token = await axios.post(`${Base_URL}/signup`,signup);
+    return token;
+}
+
+export {postLogin,postSignup}
