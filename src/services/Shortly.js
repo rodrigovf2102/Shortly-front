@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Base_URL = 'http://localhost:4000'
+const Base_URL = 'https://back-projeto-16.herokuapp.com'
 
 async function postLogin(login) {
     const token = await axios.post(`${Base_URL}/signin`,login);
@@ -8,8 +8,13 @@ async function postLogin(login) {
 }
 
 async function postSignup(signup) {
-    const token = await axios.post(`${Base_URL}/signup`,signup);
-    return token;
+    const response = await axios.post(`${Base_URL}/signup`,signup);
+    return response;
 }
 
-export {postLogin,postSignup}
+async function getRanking() {
+    const ranking = await axios.get(`${Base_URL}/ranking`);
+    return ranking;
+}
+
+export {postLogin,postSignup, getRanking}

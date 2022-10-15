@@ -32,6 +32,7 @@ export default function LoginPage() {
     }
 
     function unautorized(error) {
+        console.log(error)
         if (error.message === 'Network Error') {
             setErrorMessage(error.message)
         } else {
@@ -58,7 +59,6 @@ export default function LoginPage() {
         <Container>
             <TopBar page={'signin'}/>
             <Page>
-                <Title>Shortly<img src={shortlyImg} /></Title>
                 <Form onSubmit={loginInfo}>
                     <Input type="text" placeholder=' E-mail' onChange={event => setLogin({ ...login, email: event.target.value })}
                         disabled={disableForm} required />
