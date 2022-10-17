@@ -115,6 +115,7 @@ const Entrar = styled.div`
     height: 50px;
     border-radius: 12px;
     background-color: #5D9040;
+    opacity: ${props=>props.corEntrar};
     color: white;
     display: flex;
     justify-content: center;
