@@ -190,6 +190,7 @@ const LinkButton = styled.div`
     display: flex;
     align-items:center;
     justify-content: center;
+    cursor: pointer;
 `
 const LinksContainer = styled.div`
     width: 100%;
@@ -210,6 +211,7 @@ const Link = styled.div`
     color: white;
 `
 const DeleteLink = styled.div`
+    cursor: pointer;
     margin-top: 30px;
     width: 5%;
     height: 60px;

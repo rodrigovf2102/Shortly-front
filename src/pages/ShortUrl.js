@@ -14,36 +14,38 @@ export default function ShortUrl() {
     }, [])
 
     function authorized(response) {
-        console.log(response.data)
-    }
-
-    function unauthorized(error) {
-        if(error.response){
-            setErrorMessage(error.response.data);
-        } else{
-            setErrorMessage(error.message);
+        try {
+            window.open(response.request.responseURL, '_self');
+        } catch (error) {
+            console.log(error.message);
         }
         
     }
 
+    function unauthorized(error) {
+        console.log(error);
+        if (error.response) {
+            setErrorMessage(error.response.data);
+        } else {
+            setErrorMessage(error.message);
+        }
+    }
+
     return (
-
-            <Redirect>      
-                {errorMessage ? <div>{errorMessage}</div> : <>Redirecting...</>}
-            </Redirect>
-            
-
+        <Redirect>
+            {errorMessage ? <div>{errorMessage}</div> : <>Redirecting...</>}
+        </Redirect>
     )
 }
 
-            const Redirect = styled.div`
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            font-weight: 700;
-            background-color: rgba(210,210,210,1);
-            `
+const Redirect = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: rgba(210,210,210,1);
+`
